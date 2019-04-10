@@ -35,7 +35,7 @@ Lable_Start:
 ;RESET FLOPPY
     xor ah,ah
     xor dl,dl
-    int 1301h
+    int 13h
     jmp $
 
 StartBootMessage: db "Start Boot"

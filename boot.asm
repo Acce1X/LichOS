@@ -33,4 +33,12 @@ Lable_Start:
     int 10h
 
 ;RESET FLOPPY
-    xor
+    xor ah,ah
+    xor dl,dl
+    int 1301h
+    jmp $
+
+StartBootMessage: db "Start Boot"
+;FILL ZERO
+    times 510-($-$$) db 0
+    dw 0xaa55 ;the boot sector must end with 0xaa 0x55
